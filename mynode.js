@@ -25,6 +25,15 @@ connection.connect(function(err){
 		console.log("mysql failure");
 		throw err;
 	}
+	app.all('/',function(request,response){
+		response.writeHead(200,{"Content-Type": "text/html"});
+		response.write("<h1>Read me !!\n</h1>");
+		response.write("<h1>http://203.246.112.200:10064/hit -> hit rate graph\n</h1>");
+		response.write("<h1>http://203.246.112.200:10064/miss -> miss rate graph\n</h1>");
+		response.write("<h1>http://203.246.112.200:10064/reuse -> reuse  graph\n</h1>");
+		//response.write("http://203.246.112.200:10064/hit -> hit rate graph\n");
+		
+	});
 	
 	
 	app.all('/hit',function(request,response){
